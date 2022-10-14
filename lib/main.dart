@@ -1,5 +1,5 @@
 import 'package:cart/controller_binding.dart';
-import 'package:cart/screens/home_screen.dart';
+import 'package:cart/screens/bottom_navigation.dart';
 import 'package:cart/utils/colors.dart';
 import 'package:cart/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class CartApp extends StatelessWidget {
               bodyText2: appStyles.bodyFont,
             ),
           ),
-          home: const HomeScreen(),
+          home: const BottomNavigationScreen(),
         );
       }),
     );

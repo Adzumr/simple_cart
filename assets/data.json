@@ -214,64 +214,45 @@
             }
         ]
     },
-    "offers": [
-        {
-            "Product": "iPhone X",
-            "Price": 400,
-            "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
-        },
-        {
-            "Product": "iPhone X",
-            "Price": 400,
-            "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
-        },
-        {
-            "Product": "iPhone X",
-            "Price": 400,
-            "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
-        }
-    ],
+    "offers": {
+        "Product": "iPhone X",
+        "Price": 400,
+        "Photo": "iphoneX_pic",
+        "Ratings": 4.8,
+        "date": "24 December, 2022"
+    },
     "deals": [
         {
-            "Product": "iPhone X",
-            "Price": 4004,
+            "Product": "Fish X",
+            "Price": 2054,
             "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
+            "quantity": 4,
+            "location": "30 mins away",
+            "isFavorite": true
+        },
+        {
+            "Product": "Juice Y",
+            "Price": 3000,
+            "Photo": "iphoneX_pic",
+            "quantity": 12,
+            "location": "15 mins away",
             "isFavorite": false
         },
         {
-            "Product": "iPhone X",
-            "Price": 4004,
+            "Product": "Steck G",
+            "Price": 5420,
             "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
+            "quantity": 3,
+            "location": "5 mins away",
             "isFavorite": false
         },
         {
-            "Product": "iPhone X",
+            "Product": "Beverage B",
             "Price": 4004,
             "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
-        },
-        {
-            "Product": "iPhone X",
-            "Price": 4004,
-            "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
-        },
-        {
-            "Product": "iPhone X",
-            "Price": 4004,
-            "Photo": "iphoneX_pic",
-            "Ratings": 4.8,
-            "isFavorite": false
+            "quantity": 26,
+            "location": "54 mins away",
+            "isFavorite": true
         }
     ]
 }

@@ -1,6 +1,6 @@
 class AppDataModel {
   final Category? category;
-  final List<Offers>? offers;
+  final Offers? offers;
   final List<Deals>? deals;
 
   AppDataModel({
@@ -13,16 +13,16 @@ class AppDataModel {
       : category = (json['category'] as Map<String, dynamic>?) != null
             ? Category.fromJson(json['category'] as Map<String, dynamic>)
             : null,
-        offers = (json['offers'] as List?)
-            ?.map((dynamic e) => Offers.fromJson(e as Map<String, dynamic>))
-            .toList(),
+        offers = (json['offers'] as Map<String, dynamic>?) != null
+            ? Offers.fromJson(json['offers'] as Map<String, dynamic>)
+            : null,
         deals = (json['deals'] as List?)
             ?.map((dynamic e) => Deals.fromJson(e as Map<String, dynamic>))
             .toList();
 
   Map<String, dynamic> toJson() => {
         'category': category?.toJson(),
-        'offers': offers?.map((e) => e.toJson()).toList(),
+        'offers': offers?.toJson(),
         'deals': deals?.map((e) => e.toJson()).toList()
       };
 }
@@ -228,14 +228,14 @@ class Offers {
   final int? price;
   final String? photo;
   final double? ratings;
-  final bool? isFavorite;
+  final String? date;
 
   Offers({
     this.product,
     this.price,
     this.photo,
     this.ratings,
-    this.isFavorite,
+    this.date,
   });
 
   Offers.fromJson(Map<String, dynamic> json)
@@ -243,14 +243,14 @@ class Offers {
         price = json['Price'] as int?,
         photo = json['Photo'] as String?,
         ratings = json['Ratings'] as double?,
-        isFavorite = json['isFavorite'] as bool?;
+        date = json['date'] as String?;
 
   Map<String, dynamic> toJson() => {
         'Product': product,
         'Price': price,
         'Photo': photo,
         'Ratings': ratings,
-        'isFavorite': isFavorite
+        'date': date
       };
 }
 
@@ -258,14 +258,16 @@ class Deals {
   final String? product;
   final int? price;
   final String? photo;
-  final double? ratings;
-  bool? isFavorite;
+  final int? quantity;
+  final String? location;
+  final bool? isFavorite;
 
   Deals({
     this.product,
     this.price,
     this.photo,
-    this.ratings,
+    this.quantity,
+    this.location,
     this.isFavorite,
   });
 
@@ -273,14 +275,16 @@ class Deals {
       : product = json['Product'] as String?,
         price = json['Price'] as int?,
         photo = json['Photo'] as String?,
-        ratings = json['Ratings'] as double?,
+        quantity = json['quantity'] as int?,
+        location = json['location'] as String?,
         isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
         'Product': product,
         'Price': price,
         'Photo': photo,
-        'Ratings': ratings,
+        'quantity': quantity,
+        'location': location,
         'isFavorite': isFavorite
       };
 }
