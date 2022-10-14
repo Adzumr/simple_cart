@@ -15,33 +15,40 @@ class BottomNavigationScreen extends StatelessWidget {
     controller = PersistentTabController(initialIndex: 0);
     List<PersistentBottomNavBarItem> bottomItems = [
       PersistentBottomNavBarItem(
+        inactiveColorPrimary: appColors.shadowColor,
+        activeColorPrimary: appColors.redColor,
         title: "Home",
         icon: const Icon(
           Icons.home,
         ),
       ),
       PersistentBottomNavBarItem(
+        inactiveColorPrimary: appColors.shadowColor,
+        activeColorPrimary: appColors.redColor,
         title: "Note",
         icon: const Icon(
           Icons.note,
         ),
       ),
       PersistentBottomNavBarItem(
-        title: "Favorite",
+        inactiveColorPrimary: appColors.shadowColor,
         activeColorPrimary: appColors.redColor,
-        activeColorSecondary: appColors.whiteColor,
         icon: Icon(
-          Icons.favorite_outline,
+          Icons.add_shopping_cart_outlined,
           color: appColors.whiteColor,
         ),
       ),
       PersistentBottomNavBarItem(
-        title: "Cart",
+        title: "Favorite",
+        inactiveColorPrimary: appColors.shadowColor,
+        activeColorPrimary: appColors.redColor,
         icon: const Icon(
-          Icons.shopping_cart_outlined,
+          Icons.favorite_outline,
         ),
       ),
       PersistentBottomNavBarItem(
+        inactiveColorPrimary: appColors.shadowColor,
+        activeColorPrimary: appColors.redColor,
         title: "Cart",
         icon: const Icon(
           Icons.shopping_cart_outlined,
@@ -54,8 +61,10 @@ class BottomNavigationScreen extends StatelessWidget {
       controller: controller,
       screens: const [
         HomeScreen(),
-        HomeScreen(),
-        HomeScreen(),
+        Center(
+          child: Text("Notes"),
+        ),
+        CartScreen(),
         FavoriteScreen(),
         CartScreen(),
       ],
