@@ -1,0 +1,277 @@
+{
+    "category": {
+        "steak": [
+            {
+                "Product": "iPhone X",
+                "Price": 700,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 701,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 703,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 704,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 705,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            }
+        ],
+        "vegetables": [
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            }
+        ],
+        "beverages": [
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            }
+        ],
+        "juice": [
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            }
+        ],
+        "fish": [
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            },
+            {
+                "Product": "iPhone X",
+                "Price": 1000,
+                "Photo": "iphoneX_pic",
+                "Ratings": 4.8,
+                "isFavorite": false
+            }
+        ]
+    },
+    "offers": [
+        {
+            "Product": "iPhone X",
+            "Price": 400,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 400,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 400,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        }
+    ],
+    "deals": [
+        {
+            "Product": "iPhone X",
+            "Price": 4004,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 4004,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 4004,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 4004,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        },
+        {
+            "Product": "iPhone X",
+            "Price": 4004,
+            "Photo": "iphoneX_pic",
+            "Ratings": 4.8,
+            "isFavorite": false
+        }
+    ]
+}
