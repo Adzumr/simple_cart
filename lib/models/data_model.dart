@@ -1,24 +1,30 @@
-class DummyDataModel {
+class AppDataModel {
   final Category? category;
   final List<Offers>? offers;
   final List<Deals>? deals;
 
-  DummyDataModel({
+  AppDataModel({
     this.category,
     this.offers,
     this.deals,
   });
 
-  DummyDataModel.fromJson(Map<String, dynamic> json)
-    : category = (json['category'] as Map<String,dynamic>?) != null ? Category.fromJson(json['category'] as Map<String,dynamic>) : null,
-      offers = (json['offers'] as List?)?.map((dynamic e) => Offers.fromJson(e as Map<String,dynamic>)).toList(),
-      deals = (json['deals'] as List?)?.map((dynamic e) => Deals.fromJson(e as Map<String,dynamic>)).toList();
+  AppDataModel.fromJson(Map<String, dynamic> json)
+      : category = (json['category'] as Map<String, dynamic>?) != null
+            ? Category.fromJson(json['category'] as Map<String, dynamic>)
+            : null,
+        offers = (json['offers'] as List?)
+            ?.map((dynamic e) => Offers.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        deals = (json['deals'] as List?)
+            ?.map((dynamic e) => Deals.fromJson(e as Map<String, dynamic>))
+            .toList();
 
   Map<String, dynamic> toJson() => {
-    'category' : category?.toJson(),
-    'offers' : offers?.map((e) => e.toJson()).toList(),
-    'deals' : deals?.map((e) => e.toJson()).toList()
-  };
+        'category': category?.toJson(),
+        'offers': offers?.map((e) => e.toJson()).toList(),
+        'deals': deals?.map((e) => e.toJson()).toList()
+      };
 }
 
 class Category {
@@ -37,19 +43,29 @@ class Category {
   });
 
   Category.fromJson(Map<String, dynamic> json)
-    : steak = (json['steak'] as List?)?.map((dynamic e) => Steak.fromJson(e as Map<String,dynamic>)).toList(),
-      vegetables = (json['vegetables'] as List?)?.map((dynamic e) => Vegetables.fromJson(e as Map<String,dynamic>)).toList(),
-      beverages = (json['beverages'] as List?)?.map((dynamic e) => Beverages.fromJson(e as Map<String,dynamic>)).toList(),
-      juice = (json['juice'] as List?)?.map((dynamic e) => Juice.fromJson(e as Map<String,dynamic>)).toList(),
-      fish = (json['fish'] as List?)?.map((dynamic e) => Fish.fromJson(e as Map<String,dynamic>)).toList();
+      : steak = (json['steak'] as List?)
+            ?.map((dynamic e) => Steak.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        vegetables = (json['vegetables'] as List?)
+            ?.map((dynamic e) => Vegetables.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        beverages = (json['beverages'] as List?)
+            ?.map((dynamic e) => Beverages.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        juice = (json['juice'] as List?)
+            ?.map((dynamic e) => Juice.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        fish = (json['fish'] as List?)
+            ?.map((dynamic e) => Fish.fromJson(e as Map<String, dynamic>))
+            .toList();
 
   Map<String, dynamic> toJson() => {
-    'steak' : steak?.map((e) => e.toJson()).toList(),
-    'vegetables' : vegetables?.map((e) => e.toJson()).toList(),
-    'beverages' : beverages?.map((e) => e.toJson()).toList(),
-    'juice' : juice?.map((e) => e.toJson()).toList(),
-    'fish' : fish?.map((e) => e.toJson()).toList()
-  };
+        'steak': steak?.map((e) => e.toJson()).toList(),
+        'vegetables': vegetables?.map((e) => e.toJson()).toList(),
+        'beverages': beverages?.map((e) => e.toJson()).toList(),
+        'juice': juice?.map((e) => e.toJson()).toList(),
+        'fish': fish?.map((e) => e.toJson()).toList()
+      };
 }
 
 class Steak {
@@ -68,19 +84,19 @@ class Steak {
   });
 
   Steak.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Vegetables {
@@ -99,19 +115,19 @@ class Vegetables {
   });
 
   Vegetables.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Beverages {
@@ -130,19 +146,19 @@ class Beverages {
   });
 
   Beverages.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Juice {
@@ -161,19 +177,19 @@ class Juice {
   });
 
   Juice.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Fish {
@@ -192,19 +208,19 @@ class Fish {
   });
 
   Fish.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Offers {
@@ -223,19 +239,19 @@ class Offers {
   });
 
   Offers.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }
 
 class Deals {
@@ -243,7 +259,7 @@ class Deals {
   final int? price;
   final String? photo;
   final double? ratings;
-  final bool? isFavorite;
+  bool? isFavorite;
 
   Deals({
     this.product,
@@ -254,17 +270,17 @@ class Deals {
   });
 
   Deals.fromJson(Map<String, dynamic> json)
-    : product = json['Product'] as String?,
-      price = json['Price'] as int?,
-      photo = json['Photo'] as String?,
-      ratings = json['Ratings'] as double?,
-      isFavorite = json['isFavorite'] as bool?;
+      : product = json['Product'] as String?,
+        price = json['Price'] as int?,
+        photo = json['Photo'] as String?,
+        ratings = json['Ratings'] as double?,
+        isFavorite = json['isFavorite'] as bool?;
 
   Map<String, dynamic> toJson() => {
-    'Product' : product,
-    'Price' : price,
-    'Photo' : photo,
-    'Ratings' : ratings,
-    'isFavorite' : isFavorite
-  };
+        'Product': product,
+        'Price': price,
+        'Photo': photo,
+        'Ratings': ratings,
+        'isFavorite': isFavorite
+      };
 }

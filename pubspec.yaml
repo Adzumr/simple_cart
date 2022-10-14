@@ -33,7 +33,9 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
+  google_fonts: ^3.0.1
   hive: ^2.2.3
+  ionicons: ^0.2.1
   sizer: ^2.0.15
 
 dev_dependencies:
