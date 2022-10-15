@@ -1,8 +1,8 @@
 import 'package:cart/main.dart';
 import 'package:cart/screens/cart_screen.dart';
-import 'package:cart/screens/favorite_screen.dart';
 import 'package:cart/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class BottomNavigationScreen extends StatelessWidget {
@@ -15,43 +15,43 @@ class BottomNavigationScreen extends StatelessWidget {
     controller = PersistentTabController(initialIndex: 0);
     List<PersistentBottomNavBarItem> bottomItems = [
       PersistentBottomNavBarItem(
-        inactiveColorPrimary: appColors.shadowColor,
+        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
-        title: "Home",
+        title: "Grocery",
         icon: const Icon(
-          Icons.home,
+          Ionicons.storefront_outline,
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveColorPrimary: appColors.shadowColor,
+        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
-        title: "Note",
+        title: "News",
         icon: const Icon(
-          Icons.note,
+          Ionicons.notifications_outline,
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveColorPrimary: appColors.shadowColor,
+        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
         icon: Icon(
-          Icons.add_shopping_cart_outlined,
+          Ionicons.add_circle_outline,
           color: appColors.whiteColor,
         ),
       ),
       PersistentBottomNavBarItem(
-        title: "Favorite",
-        inactiveColorPrimary: appColors.shadowColor,
+        title: "Favorites",
+        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
         icon: const Icon(
           Icons.favorite_outline,
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveColorPrimary: appColors.shadowColor,
+        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
         title: "Cart",
         icon: const Icon(
-          Icons.shopping_cart_outlined,
+          Ionicons.wallet_outline,
         ),
       ),
     ];
@@ -62,10 +62,14 @@ class BottomNavigationScreen extends StatelessWidget {
       screens: const [
         HomeScreen(),
         Center(
-          child: Text("Notes"),
+          child: Text("News"),
         ),
-        CartScreen(),
-        FavoriteScreen(),
+        Center(
+          child: Text("Empty"),
+        ),
+        Center(
+          child: Text("Favorite"),
+        ),
         CartScreen(),
       ],
       items: bottomItems,

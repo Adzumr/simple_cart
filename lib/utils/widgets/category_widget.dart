@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
@@ -9,12 +8,12 @@ class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
     required this.category,
     required this.color,
-    this.page,
+    this.onPressed,
     Key? key,
   }) : super(key: key);
   final String? category;
   final Color? color;
-  final Object? page;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +24,7 @@ class CategoryWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {
-              Get.to(page!);
-            },
+            onTap: onPressed,
             child: Container(
               padding: EdgeInsets.all(12.sp),
               decoration: BoxDecoration(

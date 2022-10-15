@@ -2,7 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../controller/main_controller.dart';
 import '../../main.dart';
+
+class AddressSection extends StatelessWidget {
+  const AddressSection({
+    Key? key,
+    required this.mainController,
+  }) : super(key: key);
+
+  final MainController mainController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        AddressWidget(
+          address: "${mainController.userModel.value!.homeAddress}",
+          addressType: "Home",
+        ),
+        SizedBox(width: 3.w),
+        AddressWidget(
+          address: "${mainController.userModel.value!.officeAddress}",
+          addressType: "Office",
+        ),
+      ],
+    );
+  }
+}
 
 class AddressWidget extends StatelessWidget {
   const AddressWidget({

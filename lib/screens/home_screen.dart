@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:cart/controller/main_controller.dart';
 import 'package:cart/main.dart';
+import 'package:cart/models/cart_model.dart';
+import 'package:cart/models/data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,103 +22,111 @@ class HomeScreen extends StatelessWidget {
     final mainController = Get.find<MainController>();
     final searchController = TextEditingController();
 
-    return Scaffold(body: Obx(
-      () {
-        return SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.sp, horizontal: 15.sp),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                LocationSection(mainController: mainController),
-                SizedBox(height: 3.h),
-                SearchWidget(
-                  searchController: searchController,
-                ),
-                SizedBox(height: 3.h),
-                AddressSection(mainController: mainController),
-                SizedBox(height: 3.h),
-                const CategoriesSection(),
-                SizedBox(height: 3.h),
-                DealsSection(mainController: mainController),
-                SizedBox(height: 3.h),
-                Container(
-                  height: 15.h,
-                  padding: EdgeInsets.all(10.sp),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.sp),
-                    color: appColors.steckColor,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Ionicons.fast_food_outline,
-                        color: appColors.whiteColor,
-                        size: 50.sp,
-                      ),
-                      SizedBox(width: 10.w),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "${mainController.appDataModel.value!.offers!.product}",
-                            style: appStyles.bodyFont.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: appColors.redColor),
+    return Scaffold(
+      body: Obx(
+        () {
+          return mainController.appDataModel.value == null
+              ? const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                )
+              : SafeArea(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: 20.sp, horizontal: 15.sp),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        LocationSection(mainController: mainController),
+                        SizedBox(height: 3.h),
+                        SearchWidget(
+                          searchController: searchController,
+                        ),
+                        SizedBox(height: 3.h),
+                        AddressSection(mainController: mainController),
+                        SizedBox(height: 3.h),
+                        CategorySection(mainController: mainController),
+                        SizedBox(height: 3.h),
+                        DealsSection(mainController: mainController),
+                        SizedBox(height: 3.h),
+                        Container(
+                          height: 15.h,
+                          padding: EdgeInsets.all(10.sp),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.sp),
+                            color: appColors.steckColor,
                           ),
-                          Text(
-                            "WHOPPER",
-                            style: GoogleFonts.aBeeZee(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 1.h),
-                          Row(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                "\$ ${mainController.appDataModel.value!.offers!.price}",
-                                style: appStyles.title.copyWith(
-                                  color: appColors.redColor,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              Icon(
+                                Ionicons.fast_food_outline,
+                                color: appColors.whiteColor,
+                                size: 50.sp,
                               ),
-                              SizedBox(width: 8.w),
-                              Text(
-                                "\$ ${mainController.appDataModel.value!.offers!.price! + (mainController.appDataModel.value!.offers!.price! * 0.6)}",
-                                style: appStyles.title.copyWith(
-                                  color: appColors.whiteColor,
-                                  decoration: TextDecoration.lineThrough,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              SizedBox(width: 10.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "${mainController.appDataModel.value!.offers!.product}",
+                                    style: appStyles.bodyFont.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: appColors.redColor),
+                                  ),
+                                  Text(
+                                    "WHOPPER",
+                                    style: GoogleFonts.aBeeZee(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "\$ ${mainController.appDataModel.value!.offers!.price}",
+                                        style: appStyles.title.copyWith(
+                                          color: appColors.redColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(width: 8.w),
+                                      Text(
+                                        "\$ ${mainController.appDataModel.value!.offers!.price! + (mainController.appDataModel.value!.offers!.price! * 0.6)}",
+                                        style: appStyles.title.copyWith(
+                                          color: appColors.whiteColor,
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Text(
+                                    "* Available until ${mainController.appDataModel.value!.offers!.date}",
+                                    style: appStyles.smallBodyFont.copyWith(
+                                      color: appColors.whiteColor,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
                           ),
-                          SizedBox(height: 1.h),
-                          Text(
-                            "* Available until ${mainController.appDataModel.value!.offers!.date}",
-                            style: appStyles.smallBodyFont.copyWith(
-                              color: appColors.whiteColor,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    ));
+                );
+        },
+      ),
+    );
   }
 }
 
-class AddressSection extends StatelessWidget {
-  const AddressSection({
+class CategorySection extends StatelessWidget {
+  const CategorySection({
     Key? key,
     required this.mainController,
   }) : super(key: key);
@@ -125,22 +135,139 @@ class AddressSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AddressWidget(
-          address: "${mainController.userModel.value!.homeAddress}",
-          addressType: "Home",
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Explore by category",
+              style: appStyles.title,
+            ),
+            Text(
+              "See all",
+              style: appStyles.smallBodyFont,
+            ),
+          ],
         ),
-        SizedBox(width: 3.w),
-        AddressWidget(
-          address: "${mainController.userModel.value!.officeAddress}",
-          addressType: "Office",
+        SizedBox(
+          height: 12.h,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: mainController.appDataModel.value!.category!.length,
+            itemBuilder: (BuildContext context, int index) {
+              final color =
+                  Colors.primaries[Random().nextInt(Colors.primaries.length)];
+              final category =
+                  mainController.appDataModel.value!.category![index];
+              return CategoryWidget(
+                category: "${category.product}",
+                color: color.withOpacity(.5),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: ((context) {
+                      return CartDialog(
+                        category: category,
+                        mainController: mainController,
+                      );
+                    }),
+                  );
+                },
+              );
+            },
+          ),
         ),
       ],
     );
   }
 }
+
+class CartDialog extends StatelessWidget {
+  const CartDialog({
+    Key? key,
+    required this.category,
+    required this.mainController,
+  }) : super(key: key);
+
+  final Category category;
+  final MainController mainController;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text("Add to Cart?"),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          RichText(
+            text: TextSpan(
+              text: "Item: ",
+              style: appStyles.title,
+              children: [
+                TextSpan(
+                  text: "${category.product}",
+                  style: appStyles.title.copyWith(color: appColors.redColor),
+                )
+              ],
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+              text: "Price: ",
+              style: appStyles.title,
+              children: [
+                TextSpan(
+                  text: "\$${category.price}",
+                  style: appStyles.title.copyWith(color: appColors.redColor),
+                )
+              ],
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+              text: "Quantity: ",
+              style: appStyles.title,
+              children: [
+                TextSpan(
+                  text: "1",
+                  style: appStyles.title.copyWith(color: appColors.redColor),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            try {
+              mainController.cartList.add(
+                CartModel(
+                  price: category.price,
+                  product: category.product,
+                  quantity: 3,
+                ),
+              );
+            } finally {
+              Navigator.pop(context);
+            }
+          },
+          child: const Text("Yes"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text("No"),
+        ),
+      ],
+    );
+  }
+}
+
 
 class LocationSection extends StatelessWidget {
   const LocationSection({
@@ -237,62 +364,6 @@ class DealsSection extends StatelessWidget {
                 isFavorite: deal.isFavorite,
               );
             },
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CategoriesSection extends StatelessWidget {
-  const CategoriesSection({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Explore by category",
-              style: appStyles.title,
-            ),
-            Text(
-              "See all",
-              style: appStyles.smallBodyFont,
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 12.h,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              CategoryWidget(
-                category: "Steck",
-                color: appColors.steckColor,
-              ),
-              CategoryWidget(
-                category: "Vegetables",
-                color: appColors.vegetableColor,
-              ),
-              CategoryWidget(
-                category: "Beverages",
-                color: appColors.beverageColor,
-              ),
-              CategoryWidget(
-                category: "Fish",
-                color: appColors.fishColor,
-              ),
-              CategoryWidget(
-                category: "Juice",
-                color: appColors.juiceColor,
-              ),
-            ],
           ),
         ),
       ],
