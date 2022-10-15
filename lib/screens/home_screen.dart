@@ -14,9 +14,14 @@ import '../utils/widgets/address_widget.dart';
 import '../utils/widgets/category_widget.dart';
 import '../utils/widgets/deal_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final mainController = Get.find<MainController>();
@@ -267,7 +272,6 @@ class CartDialog extends StatelessWidget {
     );
   }
 }
-
 
 class LocationSection extends StatelessWidget {
   const LocationSection({
