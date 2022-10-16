@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cart/models/data_model.dart';
 import 'package:cart/models/user_model.dart';
 import 'package:cart/services/load_user_info_service.dart';
@@ -7,25 +9,6 @@ import '../models/cart_model.dart';
 import '../services/load_data_service.dart';
 
 class MainController extends GetxController {
-  var userModel = Rxn<UserModel>();
-  var appDataModel = Rxn<AppDataModel>();
-  List<CartModel> cartList = [
-    CartModel(
-      price: 500,
-      product: "Juice",
-      quantity: 15,
-    ),
-    CartModel(
-      price: 237,
-      product: "Fish",
-      quantity: 25,
-    ),
-    CartModel(
-      price: 200,
-      product: "Steck",
-      quantity: 20,
-    ),
-  ].obs;
   @override
   void onInit() {
     getDataService();
@@ -44,5 +27,25 @@ class MainController extends GetxController {
     isLoading.value = true;
     userModel.value = (await getUser());
     isLoading.value = false;
+  }
+
+  var userModel = Rxn<UserModel>();
+  var appDataModel = Rxn<AppDataModel>();
+  final itemsList = {}.obs;
+  void addItem(CartModel? cartModel) {
+    if (itemsList.containsKey(cartModel)) {
+      itemsList[cartModel] += 1;
+    } else {
+      itemsList[cartModel] = 1;
+    }
+    log("${itemsList.length}");
+  }
+
+  void removeItem(CartModel? cartModel) {
+    if (itemsList.containsKey(cartModel) && itemsList[cartModel] == 1) {
+      itemsList.removeWhere((key, value) => key == cartModel);
+    } else {
+      itemsList[cartModel] -= 1;
+    }
   }
 }

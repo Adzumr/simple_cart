@@ -2,14 +2,13 @@ import 'dart:math';
 
 import 'package:cart/controller/main_controller.dart';
 import 'package:cart/main.dart';
-import 'package:cart/models/cart_model.dart';
-import 'package:cart/models/data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../models/cart_model.dart';
 import '../utils/widgets/address_widget.dart';
 import '../utils/widgets/category_widget.dart';
 import '../utils/widgets/deal_widget.dart';
@@ -170,103 +169,14 @@ class CategorySection extends StatelessWidget {
                 category: "${category.product}",
                 color: color.withOpacity(.5),
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: ((context) {
-                      return CartDialog(
-                        category: category,
-                        mainController: mainController,
-                      );
-                    }),
-                  );
+                  mainController.addItem(CartModel(
+                    price: category.price,
+                    product: category.product,
+                  ));
                 },
               );
             },
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class CartDialog extends StatelessWidget {
-  const CartDialog({
-    Key? key,
-    required this.category,
-    required this.mainController,
-  }) : super(key: key);
-
-  final Category category;
-  final MainController mainController;
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text("Add to Cart?"),
-      content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          RichText(
-            text: TextSpan(
-              text: "Item: ",
-              style: appStyles.title,
-              children: [
-                TextSpan(
-                  text: "${category.product}",
-                  style: appStyles.title.copyWith(color: appColors.redColor),
-                )
-              ],
-            ),
-          ),
-          RichText(
-            text: TextSpan(
-              text: "Price: ",
-              style: appStyles.title,
-              children: [
-                TextSpan(
-                  text: "\$${category.price}",
-                  style: appStyles.title.copyWith(color: appColors.redColor),
-                )
-              ],
-            ),
-          ),
-          RichText(
-            text: TextSpan(
-              text: "Quantity: ",
-              style: appStyles.title,
-              children: [
-                TextSpan(
-                  text: "1",
-                  style: appStyles.title.copyWith(color: appColors.redColor),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-      actions: [
-        ElevatedButton(
-          onPressed: () {
-            try {
-              mainController.cartList.add(
-                CartModel(
-                  price: category.price,
-                  product: category.product,
-                  quantity: 3,
-                ),
-              );
-            } finally {
-              Navigator.pop(context);
-            }
-          },
-          child: const Text("Yes"),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text("No"),
         ),
       ],
     );
