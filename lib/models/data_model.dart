@@ -95,7 +95,7 @@ class Deals {
   final String? photo;
   final int? quantity;
   final String? location;
-  final bool? isFavorite;
+  dynamic isFavorite;
 
   Deals({
     this.product,

@@ -12,21 +12,23 @@ class CartProducts extends StatelessWidget {
   final MainController mainController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Obx((() {
-      return Flexible(
-        child: ListView.builder(
-          itemCount: mainController.itemsList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CartItem(
-              index: index,
-              mainController: mainController,
-              cartModel: mainController.itemsList.keys.toList()[index],
-              quantity: mainController.itemsList.values.toList()[index],
-            );
-          },
-        ),
-      );
-    }));
+    return Obx(
+      (() {
+        return Flexible(
+          child: ListView.builder(
+            itemCount: mainController.itemsList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CartItem(
+                index: index,
+                mainController: mainController,
+                cartModel: mainController.itemsList.keys.toList()[index],
+                quantity: mainController.itemsList.values.toList()[index],
+              );
+            },
+          ),
+        );
+      }),
+    );
   }
 }
 
@@ -78,7 +80,7 @@ class CartItem extends StatelessWidget {
             ),
             SizedBox(height: 0.5.h),
             Text(
-              "\$ ${cartModel!.price}",
+              "\$ ${cartModel!.price! * quantity!}",
               style: appStyles.title.copyWith(
                 color: appColors.redColor,
               ),
@@ -94,6 +96,7 @@ class CartItem extends StatelessWidget {
               InkWell(
                 onTap: () {
                   mainController!.removeItem(cartModel);
+                  mainController!.update();
                 },
                 child: Container(
                   padding: EdgeInsets.all(4.sp),
@@ -118,6 +121,7 @@ class CartItem extends StatelessWidget {
               InkWell(
                 onTap: () {
                   mainController!.addItem(cartModel);
+                  mainController!.update();
                 },
                 child: Container(
                   padding: EdgeInsets.all(4.sp),

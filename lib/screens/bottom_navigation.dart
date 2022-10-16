@@ -2,11 +2,23 @@ import 'package:cart/main.dart';
 import 'package:cart/screens/cart_screen.dart';
 import 'package:cart/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:ionicons/ionicons.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:sizer/sizer.dart';
 
-class BottomNavigationScreen extends StatelessWidget {
+import '../controller/main_controller.dart';
+
+class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({Key? key}) : super(key: key);
+
+  @override
+  State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
+}
+
+class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
+  final mainController = Get.find<MainController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +45,15 @@ class BottomNavigationScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
-        icon: Icon(
-          Ionicons.add_circle_outline,
-          color: appColors.whiteColor,
+        icon: SizedBox(
+          height: 5.h,
+          width: 5.h,
+          child: const Padding(
+            padding: EdgeInsets.all(5.0),
+            child: Image(
+              image: AssetImage('assets/cartIcon.png'),
+            ),
+          ),
         ),
       ),
       PersistentBottomNavBarItem(

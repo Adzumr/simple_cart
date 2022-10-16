@@ -29,12 +29,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  badges: ^2.0.3
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   get: ^4.6.5
   google_fonts: ^3.0.1
-  hive: ^2.2.3
   ionicons: ^0.2.1
   persistent_bottom_nav_bar: ^5.0.2
   sizer: ^2.0.15

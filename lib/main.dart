@@ -4,6 +4,7 @@ import 'package:cart/utils/colors.dart';
 import 'package:cart/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+
 import 'package:sizer/sizer.dart';
 
 void main() {

@@ -4,7 +4,6 @@ import 'package:cart/models/data_model.dart';
 import 'package:cart/models/user_model.dart';
 import 'package:cart/services/load_user_info_service.dart';
 import 'package:get/state_manager.dart';
-
 import '../models/cart_model.dart';
 import '../services/load_data_service.dart';
 
@@ -31,12 +30,17 @@ class MainController extends GetxController {
 
   var userModel = Rxn<UserModel>();
   var appDataModel = Rxn<AppDataModel>();
-  final itemsList = {}.obs;
+  RxMap itemsList = {}.obs;
+
+
+
   void addItem(CartModel? cartModel) {
     if (itemsList.containsKey(cartModel)) {
       itemsList[cartModel] += 1;
+
     } else {
       itemsList[cartModel] = 1;
+
     }
     log("${itemsList.length}");
   }
@@ -44,8 +48,10 @@ class MainController extends GetxController {
   void removeItem(CartModel? cartModel) {
     if (itemsList.containsKey(cartModel) && itemsList[cartModel] == 1) {
       itemsList.removeWhere((key, value) => key == cartModel);
+
     } else {
       itemsList[cartModel] -= 1;
+
     }
   }
 }
