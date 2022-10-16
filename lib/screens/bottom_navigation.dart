@@ -45,6 +45,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
       PersistentBottomNavBarItem(
         inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
         activeColorPrimary: appColors.redColor,
+        onPressed: (value) {
+         
+        },
         icon: SizedBox(
           height: 5.h,
           width: 5.h,

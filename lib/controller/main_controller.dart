@@ -30,17 +30,29 @@ class MainController extends GetxController {
 
   var userModel = Rxn<UserModel>();
   var appDataModel = Rxn<AppDataModel>();
-  RxMap itemsList = {}.obs;
+  var itemsList = {}.obs;
 
-
+  get productSubTotal =>
+      itemsList.entries.map((e) => e.key.price * e.value).toList();
+  get total => itemsList.entries
+      .map((e) => e.key.price * e.value)
+      .toList()
+      .reduce((value, element) => value + element)
+      .toString();
+  getTotal() {
+    dynamic total = itemsList.entries
+        .map((e) => e.key.price * e.value)
+        .toList()
+        .reduce((value, element) => value + element);
+    log("total: ${total.runtimeType}");
+    return total;
+  }
 
   void addItem(CartModel? cartModel) {
     if (itemsList.containsKey(cartModel)) {
       itemsList[cartModel] += 1;
-
     } else {
       itemsList[cartModel] = 1;
-
     }
     log("${itemsList.length}");
   }
@@ -48,10 +60,8 @@ class MainController extends GetxController {
   void removeItem(CartModel? cartModel) {
     if (itemsList.containsKey(cartModel) && itemsList[cartModel] == 1) {
       itemsList.removeWhere((key, value) => key == cartModel);
-
     } else {
       itemsList[cartModel] -= 1;
-
     }
   }
 }
