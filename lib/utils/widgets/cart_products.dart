@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cart/controller/main_controller.dart';
 import 'package:cart/models/cart_model.dart';
 import 'package:flutter/material.dart';
@@ -20,11 +18,8 @@ class CartProducts extends StatelessWidget {
           child: ListView.builder(
             itemCount: mainController.itemsList.length,
             itemBuilder: (BuildContext context, int index) {
-              final color =
-                  Colors.primaries[Random().nextInt(Colors.primaries.length)];
               return CartItem(
                 index: index,
-                color: color,
                 mainController: mainController,
                 cartModel: mainController.itemsList.keys.toList()[index],
                 quantity: mainController.itemsList.values.toList()[index],
@@ -44,14 +39,12 @@ class CartItem extends StatelessWidget {
     required this.mainController,
     required this.cartModel,
     required this.quantity,
-    required this.color,
   }) : super(key: key);
 
   final int? index;
   final MainController? mainController;
   final CartModel? cartModel;
   final int? quantity;
-  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +54,7 @@ class CartItem extends StatelessWidget {
           padding: EdgeInsets.all(15.sp),
           margin: EdgeInsets.symmetric(vertical: 5.sp),
           decoration: BoxDecoration(
-            color: color!.withOpacity(.5),
+            color: appColors.juiceColor.withOpacity(.5),
             borderRadius: BorderRadius.circular(10.sp),
           ),
           child: Icon(

@@ -56,7 +56,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
                     top: 8.sp,
                     left: 2.sp,
                     child: Text(
-                      "\$ ${mainController.total}",
+                      mainController.itemsList.isEmpty
+                          ? "\$ 0"
+                          : "\$ ${mainController.total}",
                       style: appStyles.smallBodyFont.copyWith(
                         fontSize: 6.sp,
                         fontWeight: FontWeight.bold,
