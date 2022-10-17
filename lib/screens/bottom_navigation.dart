@@ -43,22 +43,37 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
-        activeColorPrimary: appColors.redColor,
-        onPressed: (value) {
-         
-        },
-        icon: SizedBox(
-          height: 5.h,
-          width: 5.h,
-          child: const Padding(
-            padding: EdgeInsets.all(5.0),
-            child: Image(
-              image: AssetImage('assets/cartIcon.png'),
-            ),
-          ),
-        ),
-      ),
+          inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
+          activeColorPrimary: appColors.redColor,
+          onPressed: (value) {},
+          icon: Obx((() {
+            return SizedBox(
+              height: 5.h,
+              width: 5.h,
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 8.sp,
+                    left: 2.sp,
+                    child: Text(
+                      "\$ ${mainController.total}",
+                      style: appStyles.smallBodyFont.copyWith(
+                        fontSize: 6.sp,
+                        fontWeight: FontWeight.bold,
+                        color: appColors.whiteColor,
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Image(
+                      image: AssetImage('assets/cartIcon.png'),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }))),
       PersistentBottomNavBarItem(
         title: "Favorites",
         inactiveColorPrimary: appColors.blackColor.withOpacity(.5),
